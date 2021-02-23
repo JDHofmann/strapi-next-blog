@@ -10,6 +10,7 @@ export default function Home({blogs}) {
       {blogs && blogs.map( (blog) => (
         <div key={blog.id}>
           <h2>{blog.Title}</h2>
+          <p>{blog.user.username}</p>
         </div>
       ))}
       
