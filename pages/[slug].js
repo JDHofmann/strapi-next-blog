@@ -7,6 +7,7 @@ export default function Post({ blog }) {
         <a>Go Home</a>
       </Link>
       <h2>{blog.Title}</h2>
+      <p>{blog.Content}</p>
     </div>
   );
 }

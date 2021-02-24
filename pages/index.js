@@ -1,38 +1,47 @@
 
-export default function Home({blogs}) {
+export default function Home({blogs, bios}) {
 
   console.log("i am on the client")
 
   return (
     // loop over blogs and show them
-
-    <div>
+    <div className="main">
+    <h1>Test Page</h1>
+    <div className="blogs">
+      <h2>Recent Articles</h2>
       {blogs && blogs.map( (blog) => (
         <div key={blog.id}>
-          <h2>{blog.Title}</h2>
-          <p>{blog.user.username}</p>
+          <h3>{blog.Title}<span className="author"> - {blog.user.username}</span></h3>
         </div>
       ))}
-      
-
+    </div>
+    {/* loop over bios and show them */}
+    <div className="bios">
+      <h2>Our Employees</h2>
+      {bios && bios.map((bio) => (
+        <div key={bio.id}>
+          <h3>{bio.title}</h3>
+        </div>
+      ))}
+    </div>
     </div>
   )
 }
 
 export async function getStaticProps() {
 
-  // console.log("I'm the server side");
-
   //get posts from our api
 
-  const res = await fetch("http://localhost:1337/blogs");
-  const blogs = await res.json()
+  const resBlogs = await fetch("http://localhost:1337/blogs");
+  const blogs = await resBlogs.json()
 
-  console.log(blogs)
+  // get bios from our api
+  const resBios = await fetch('http://localhost:1337/bios');
+  const bios = await resBios.json();
 
   return {
     props: {
-      blogs
+      blogs, bios
     }
   }
 }

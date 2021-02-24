@@ -15,7 +15,30 @@ a {
   box-sizing: border-box;
 }
 
+h1 {
+  background: #000000;
+  color: #ffffff;
+  text-align: center;
+  padding: 1vh 1vw;
+}
+
+.main {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.blogs, .bios {
+  border-top: 1px solid #bbbbbb;
+  margin: 2.5vh 0;
+  padding: 2.5vh 0;
+}
+
+.author {
+  font-size: 14px;
+  font-weight: 200;
+}
+
 .bio-pic {
   width: 100px;
-  
+
 }
